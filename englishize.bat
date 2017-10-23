@@ -49,18 +49,22 @@ if %errorlevel% EQU 0 (
 )
 :skipAdminCheck
 
+:: acquire admin group account name
+
+for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
+
 cls
 
 
-title Englishize Cmd v1.5
+title Englishize Cmd v1.6a
 echo.
 echo.
-echo                            [ Englishize Cmd v1.5 ]
+echo                            [ Englishize Cmd v1.6a ]
 echo.
 echo.
 echo #  This script changes command line interface to English.
 echo.
-echo #  Designed for localized non-English Windows 7/Vista. All languages supported.
+echo #  Designed for localized non-English Windows Vista or above. Any languages.
 echo.
 echo #  Note 1. A few programs without a .mui aren't affected, e.g. xcopy
 echo.
@@ -84,7 +88,7 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
     @for /f "usebackq" %%m in ("_lang_codes.txt") do (
       @if exist "%systemroot%\SysWoW64\%%m\%%i.mui" (
         takeown /a /f "%systemroot%\SysWoW64\%%m\%%i.mui"
-        cacls "%systemroot%\SysWoW64\%%m\%%i.mui" /E /G administrators:F
+        cacls "%systemroot%\SysWoW64\%%m\%%i.mui" /E /G "%adminGroupName%":F
         ren "%systemroot%\SysWoW64\%%m\%%i.mui" "%%i.mui.disabled"
       )
     )
@@ -99,7 +103,7 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
     @for /f "usebackq" %%m in ("_lang_codes.txt") do (
       @if exist "%systemroot%\System32\%%m\%%i.mui" (
         takeown /a /f "%systemroot%\System32\%%m\%%i.mui"
-        cacls "%systemroot%\System32\%%m\%%i.mui" /E /G administrators:F
+        cacls "%systemroot%\System32\%%m\%%i.mui" /E /G "%adminGroupName%":F
         ren "%systemroot%\System32\%%m\%%i.mui" "%%i.mui.disabled"
       )
     )

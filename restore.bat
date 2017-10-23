@@ -49,11 +49,16 @@ if %errorlevel% EQU 0 (
 )
 :skipAdminCheck
 
+:: acquire admin group account name
+
+for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
+
+
 cls
-title Englishize Cmd v1.5
+title Englishize Cmd v1.6a
 echo.
 echo.
-echo                            [ Englishize Cmd v1.5 ]
+echo                            [ Englishize Cmd v1.6a ]
 echo.
 echo.
 echo #  This script restores the command line interface back to original
@@ -73,16 +78,16 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
 		icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
 		REM the below output is probably an error, hence muted to avoid confusion as redirection probably handled it
 		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
-		icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d
-		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d >nul 2>&1
+		icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d
+		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d >nul 2>&1
 	)
 	if exist "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" (
 		ren "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" "%%i.mui"
 		if exist "%systemroot%\System32\%%m\%%i.mui.disabled" @ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
 		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
 		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
-		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d
-		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d >nul 2>&1
+		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d
+		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d >nul 2>&1
 	)
   )
 )

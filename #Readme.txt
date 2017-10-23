@@ -1,5 +1,5 @@
 
-                            [ Englishize Cmd v1.5 ]
+                            [ Englishize Cmd v1.6a ]
 
              http://wandersick.blogspot.com | wandersick@gmail.com
 
@@ -20,7 +20,7 @@
   .  Administrator rights are required. It asks for rights to elevates itself.
      Does not elevate over network mapped drives however.
   
-  .  Windows Vista or above only (Windows Vista/7/8, Server 2008/R2/8/2012)
+  .  Windows Vista or above only (Windows Vista/7/8/8.1, Server 2008/2012[R2])
 
      [ Instructions ]
   
@@ -57,6 +57,11 @@
 
      [ Releases ]
 
+      v1.6a   A quick fix to improve the last version.
+      v1.6    Fixed bug in some non-English localized versions of Windows
+              where 'Administrators' group account is named something else.
+              Thanks Markus (echalone).
+              Confirmed working in Windows 8.1.
       v1.5    Support for mui files under %systemroot%\syswow64.
               Restorer now restores original permissions and ownership
               Confirmed working in Windows 8. Updated with new CLI tools.
