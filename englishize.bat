@@ -11,6 +11,10 @@ for /f "usebackq tokens=3 skip=2" %%i in (`reg query "HKLM\SOFTWARE\Microsoft\Wi
     )
 )
 
+:: UAC check
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA | find /i "0x1"
+if %errorlevel% EQU 0 set UACenabled=1
+
 :: detect if system has WSH disabled unsigned scripts
 :: if useWINSAFER = 1, the TrustPolicy below is ignored and use SRP for this option instead. So check if = 0.
 :: if TrustPolicy = 0, allow both signed and unsigned; if = 1, warn on unsigned; if = 2, disallow unsigned.
@@ -36,16 +40,21 @@ if defined noWSH (
 attrib >nul 2>&1
 if "%errorlevel%"=="9009" set noAttrib=1
 
-:: detect for admin rights
+:: detect admin rights
 if defined noAttrib goto :skipAdminCheck
 attrib -h "%windir%\system32" | find /i "system32" >nul 2>&1
 if %errorlevel% EQU 0 (
-  cscript //NoLogo ".\Data\_elevate.vbs" "%CD%\" "%CD%\englishize.bat" >nul 2>&1
-  REM echo.
-	REM echo #  ERROR: Admin rights required.
-	REM echo.
-	REM pause
-	goto :EOF
+	if "%UACenabled%" EQU "1" (
+		REM only when UAC is enabled can this script be elevated. Otherwise, non-stop prompting will occur.
+		cscript //NoLogo ".\Data\_elevate.vbs" "%CD%\" "%CD%\englishize.bat" >nul 2>&1
+		goto :EOF
+	) else (
+		echo.
+		echo ** WARNING: Script running without admin rights. Cannot continue.
+		echo.
+		pause
+		goto :EOF
+	)
 )
 :skipAdminCheck
 
@@ -56,10 +65,10 @@ for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_
 cls
 
 
-title Englishize Cmd v1.6a
+title Englishize Cmd v1.7a
 echo.
 echo.
-echo                            [ Englishize Cmd v1.6a ]
+echo                            [ Englishize Cmd v1.7a ]
 echo.
 echo.
 echo #  This script changes command line interface to English.
@@ -116,4 +125,4 @@ echo #  Completed. To restore, run restore.bat
 echo.
 echo Press any key to run test . . .
 pause >nul
-start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in English.&echo.&pause"
+start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: It is normal if you see 'not enough storage' error.&echo.&pause"

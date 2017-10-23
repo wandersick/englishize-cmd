@@ -1,5 +1,5 @@
 
-                            [ Englishize Cmd v1.6a ]
+                            [ Englishize Cmd v1.7a ]
 
              http://wandersick.blogspot.com | wandersick@gmail.com
 
@@ -57,22 +57,26 @@
 
      [ Releases ]
 
-      v1.6a   A quick fix to improve the last version.
-      v1.6    Fixed bug in some non-English localized versions of Windows
+       1.7a   A quick fix to patch the recently updated restore.bat which
+              launched incorrect batch script during elevation.
+       1.7    Fixes non-stop prompting when run as standard user w/o UAC.
+              Added a note: it is normal to see 'not enough storage' error     
+       1.6a   A quick fix to improve the last version.
+       1.6    Fixed bug in some non-English localized versions of Windows
               where 'Administrators' group account is named something else.
               Thanks Markus (echalone).
               Confirmed working in Windows 8.1.
-      v1.5    Support for mui files under %systemroot%\syswow64.
+       1.5    Support for mui files under %systemroot%\syswow64.
               Restorer now restores original permissions and ownership
               Confirmed working in Windows 8. Updated with new CLI tools.
-      v1.4a   Fixed a significant bug of last version. _lang_codes.txt should
+       1.4a   Fixed a significant bug of last version. _lang_codes.txt should
               not have any 'en-XX' otherwise even English is disabled.
-      v1.4    Improved _lang_codes.txt so that all system languages are
+       1.4    Improved _lang_codes.txt so that all system languages are
               supported. (Please report if your locale is not included)
-      v1.3    Now elevates automatically. Added check for Windows version.
-      v1.2    Documentation and coding improvements
-      v1.1    Added check for admin rights
-      v1.0    First public release
+       1.3    Now elevates automatically. Added check for Windows version.
+       1.2    Documentation and coding improvements
+       1.1    Added check for admin rights
+       1.0    First public release
 
      [ Suggestions ]
 
