@@ -52,10 +52,10 @@ if %errorlevel% EQU 0 (
 cls
 
 
-title Englishize Cmd v1.3 - by wanderSick.blogspot.com
+title Englishize Cmd v1.4a
 echo.
 echo.
-echo                           [ Englishize Cmd v1.3 ]
+echo                           [ Englishize Cmd v1.4a ]
 echo.
 echo.
 echo #  This script changes command line interface to English.

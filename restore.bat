@@ -50,10 +50,10 @@ if %errorlevel% EQU 0 (
 :skipAdminCheck
 
 cls
-title Englishize Cmd v1.3 - by wanderSick.blogspot.com
+title Englishize Cmd v1.4a
 echo.
 echo.
-echo                           [ Englishize Cmd v1.3 ]
+echo                           [ Englishize Cmd v1.4a ]
 echo.
 echo.
 echo #  This script restores the command line interface back to original

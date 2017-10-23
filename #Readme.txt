@@ -1,5 +1,5 @@
 
-                           [ Englishize Cmd v1.3 ]
+                           [ Englishize Cmd v1.4a ]
 
              http://wandersick.blogspot.com | wandersick@gmail.com
 
@@ -20,7 +20,7 @@
   .  Administrator rights are required. It asks for rights to elevates itself.
      Does not elevate over network mapped drives however.
   
-  .  Windows Vista/7 or later only.      
+  .  Windows 6.0 or above only (Windows Vista/7/8, Server 2008/R2/8)
 
      [ Instructions ]
   
@@ -56,7 +56,11 @@
       http://wandersick.blogspot.com/p/change-non-english-command-line.html
 
      [ Releases ]
-     
+
+      v1.4a   Fixed a significant bug of last version. _lang_codes.txt should
+              not have any 'en-XX' otherwise even English is disabled.
+      v1.4    Improved _lang_codes.txt so that all system languages are
+              supported. (Please report if your locale is not included)
       v1.3    Now elevates automatically. Added check for Windows version.
       v1.2    Documentation and coding improvements
       v1.1    Added check for admin rights
