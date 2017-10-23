@@ -50,10 +50,10 @@ if %errorlevel% EQU 0 (
 :skipAdminCheck
 
 cls
-title Englishize Cmd v1.4a
+title Englishize Cmd v1.5
 echo.
 echo.
-echo                           [ Englishize Cmd v1.4a ]
+echo                            [ Englishize Cmd v1.5 ]
 echo.
 echo.
 echo #  This script restores the command line interface back to original
@@ -61,16 +61,31 @@ echo.
 echo Press any key to begin . . .
 pause >nul
 
-
+:: the below covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
 
 for /f "usebackq" %%i in ("_files_to_process.txt") do (
   @for /f "usebackq" %%m in ("_lang_codes.txt") do (
-    @if exist "%systemroot%\System32\%%m\%%i.mui.disabled" (
-      ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
-    )
+	REM restores original permissions and ownership - icacls is used as cacls cannot replace F permissions with RX and disable inheritance
+	REM due to redirection, one of these pairs are unrequired, but they are left here anyway to ensure all things in system32 and syswow64 are covered even without redirection
+	if exist "%systemroot%\System32\%%m\%%i.mui.disabled" (
+		ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
+		if exist "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" @ren "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" "%%i.mui"
+		icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
+		REM the below output is probably an error, hence muted to avoid confusion as redirection probably handled it
+		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
+		icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d
+		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d >nul 2>&1
+	)
+	if exist "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" (
+		ren "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" "%%i.mui"
+		if exist "%systemroot%\System32\%%m\%%i.mui.disabled" @ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
+		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
+		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
+		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d
+		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r Administrators:^(RX^) /inheritance:d >nul 2>&1
+	)
   )
 )
-
 
 echo.
 echo #  Completed.

@@ -1,5 +1,5 @@
 
-                           [ Englishize Cmd v1.4a ]
+                            [ Englishize Cmd v1.5 ]
 
              http://wandersick.blogspot.com | wandersick@gmail.com
 
@@ -20,7 +20,7 @@
   .  Administrator rights are required. It asks for rights to elevates itself.
      Does not elevate over network mapped drives however.
   
-  .  Windows 6.0 or above only (Windows Vista/7/8, Server 2008/R2/8)
+  .  Windows Vista or above only (Windows Vista/7/8, Server 2008/R2/8/2012)
 
      [ Instructions ]
   
@@ -53,10 +53,13 @@
      
      [ Video Demo ]
          
-      http://wandersick.blogspot.com/p/change-non-english-command-line.html
+     http://wandersick.blogspot.com/p/change-non-english-command-line.html
 
      [ Releases ]
 
+      v1.5    Support for mui files under %systemroot%\syswow64.
+              Restorer now restores original permissions and ownership
+              Confirmed working in Windows 8. Updated with new CLI tools.
       v1.4a   Fixed a significant bug of last version. _lang_codes.txt should
               not have any 'en-XX' otherwise even English is disabled.
       v1.4    Improved _lang_codes.txt so that all system languages are

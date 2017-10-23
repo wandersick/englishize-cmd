@@ -22,6 +22,7 @@ Certutil.exe
 Change.exe
 Chcp.exe
 Chdir.exe
+Checknetisolation.exe
 Chglogon.exe
 Chgport.exe
 Chguser.exe
@@ -91,6 +92,7 @@ Find.exe
 Findstr.exe
 Finger.exe
 Flattemp.exe
+Fondue.exe
 For.exe
 Forfiles.exe
 Format.exe
@@ -109,6 +111,7 @@ Helpctr.exe
 Hostname.exe
 Icacls.exe
 If.exe
+Licensingdiag.exe
 Iisapp.exe
 Iisback.exe
 Iiscnfg.exe
@@ -186,6 +189,7 @@ Prnqctl.exe
 Prompt.exe
 Pubprn.exe
 Pushd.exe
+Pwlauncher.exe
 Qappsrv.exe
 Qprocess.exe
 Query.exe
@@ -200,6 +204,7 @@ Redircmp.exe
 Redirusr.exe
 Reg.exe
 Register.exe
+Register-cimprovider.exe
 Regsvr32.exe
 Relog.exe
 Rem.exe
@@ -249,6 +254,7 @@ Tftp.exe
 Time.exe
 Timeout.exe
 Title.exe
+Tpmvscmgr.exe
 Tracerpt.exe
 Tracert.exe
 Tree.exe

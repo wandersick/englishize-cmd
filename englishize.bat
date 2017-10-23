@@ -52,25 +52,46 @@ if %errorlevel% EQU 0 (
 cls
 
 
-title Englishize Cmd v1.4a
+title Englishize Cmd v1.5
 echo.
 echo.
-echo                           [ Englishize Cmd v1.4a ]
+echo                            [ Englishize Cmd v1.5 ]
 echo.
 echo.
 echo #  This script changes command line interface to English.
 echo.
-echo #  For localized non-English Windows 7/Vista. Most languages are supported.
+echo #  Designed for localized non-English Windows 7/Vista. All languages supported.
 echo.
 echo #  Note 1. A few programs without a .mui aren't affected, e.g. xcopy
 echo.
 echo         2. _files_to_process.txt can be customized to cover more/less commands
 echo.
 echo         3. English MUI can be installed through Windows Update or Vistalizator
-echo            to support more programs such as GUI Paint.
+echo            to support GUI programs such as Paint.
 echo.
 echo Press any key to begin . . .
 pause >nul
+
+
+:: the below only runs if current system is x64
+:: it covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
+
+if not defined ProgramFiles(x86) goto :notX64
+
+for /f "usebackq" %%i in ("_files_to_process.txt") do (
+  @if exist "%systemroot%\SysWoW64\en-US\%%i.mui" (
+    REM lang code file should not contain english language codes. (cant remove eng cos thats the line.)
+    @for /f "usebackq" %%m in ("_lang_codes.txt") do (
+      @if exist "%systemroot%\SysWoW64\%%m\%%i.mui" (
+        takeown /a /f "%systemroot%\SysWoW64\%%m\%%i.mui"
+        cacls "%systemroot%\SysWoW64\%%m\%%i.mui" /E /G administrators:F
+        ren "%systemroot%\SysWoW64\%%m\%%i.mui" "%%i.mui.disabled"
+      )
+    )
+  )
+)
+
+:notX64
 
 for /f "usebackq" %%i in ("_files_to_process.txt") do (
   @if exist "%systemroot%\System32\en-US\%%i.mui" (
@@ -84,6 +105,7 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
     )
   )
 )
+
 
 echo.
 echo #  Completed. To restore, run restore.bat
