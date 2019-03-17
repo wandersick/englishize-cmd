@@ -2,7 +2,7 @@
 
 There often comes a need to use built-in command-line tools in English in non-English Windows, as they are localized to another language which can be difficult for admins who only speak English. &#39;Englishize Cmd&#39; employs a different technique to &#39;englishize&#39; CLI tools with a click.
 
-For more instructions and download of latest version, refer to:
+Download the latest release at Microsoft TechNet Gallery:
 - https://gallery.technet.microsoft.com/Englishize-Cmd-Command-3e66ba79
 
  ![](https://farm5.static.flickr.com/4041/4481192203_2374fa34da_o.png "Bilingual command prompt: Upper has Englishize Cmd applied (changed to English); lower has it restored (to original language).")
