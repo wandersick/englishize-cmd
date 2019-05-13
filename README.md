@@ -78,72 +78,16 @@ Englishize Cmd has been designed with safety in mind; it does not allow a .mui t
 
 ## Release history
 
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.7a | 20140513 | c0b89ec00a51403db6afc650cc4dba16 |
-
-- A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe |
-
-- Fixes non-stop prompting when run as standard user w/o UAC.
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 |
-
-- A quick fix to improve the last version.
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.6 | 20140105 | 0f45d9df16c9597a58804103fc0b492e |
-
-1. Fixed bug in some non-English localized versions of Windows where 'Administrators' group account is named something else. Thanks Markus (echalone).
-2. Confirmed working in Windows 8.1.
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.5 | 20130215 | 8f6a103cad75167408f7dce43460eff9 |
-
-1. Support for mui files under %systemroot%\syswow64.
-2. Restore.bat now restores original permissions and ownership (TrustedInstaller).
-3. Confirmed working in Windows 8. Updated with new CLI tools.
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.4a | 20120408 | 6793d377acd497643a9c762d3fed6c81 |
-
-- Fixed "_lang_codes.txt". It should not contain any en-XX languages; otherwise, even English is disabled.
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.4 | 20120407 | dc458d3e02d72956a61021bb0d90c2ff |
-
-- Improved "_lang_codes.txt" so that all system languages are supported. (Please report if your locale is not included)
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.3 | 20100428 | 2312bb99d93915a7645237dbb1de2191 |
-
-- Now asks for elevation automatically
-- Added check for Windows version
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.2 | 20100420 | b25aa93e43577b3209f4aa57d9966e60 |
-
-- 	Documentation and coding improvements
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.1 | 20100416 | d4082b73326963ecf17f4801106bc371 |
-
-- Added check for admin rights
-
-| Ver | Date | MD5 |
-| --- | --- | --- |
-| 1.0 | 20100401 | d8f0e80c6c6fc9f03629aab911f102ee |
-
-- First public release
+| Ver | Date | MD5 | Changes |
+| --- | --- | --- | --- |
+| 1.7a | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
+| 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe | - Fixes non-stop prompting when run as standard user w/o UAC. |
+| 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 | - A quick fix to improve the last version. |
+| 1.6 | 20140105 | 0f45d9df16c9597a58804103fc0b492e | 1. Fixed bug in some non-English localized versions of Windows where 'Administrators' group account is named something else. Thanks Markus (echalone).<br>2. Confirmed working in Windows 8.1. |
+| 1.5 | 20130215 | 8f6a103cad75167408f7dce43460eff9 | 1. Support for mui files under %systemroot%\syswow64.<br>2. Restore.bat now restores original permissions and ownership (TrustedInstaller).<br>3. Confirmed working in Windows 8. Updated with new CLI tools. |
+| 1.4a | 20120408 | 6793d377acd497643a9c762d3fed6c81 | - Fixed "_lang_codes.txt". It should not contain any en-XX languages; otherwise, even English is disabled. |
+| 1.4 | 20120407 | dc458d3e02d72956a61021bb0d90c2ff | - Improved "_lang_codes.txt" so that all system languages are supported. (Please report if your locale is not included) |
+| 1.3 | 20100428 | 2312bb99d93915a7645237dbb1de2191 | - Now asks for elevation automatically<br>- Added check for Windows version
+| 1.2 | 20100420 | b25aa93e43577b3209f4aa57d9966e60 | - 	Documentation and coding improvements
+| 1.1 | 20100416 | d4082b73326963ecf17f4801106bc371 | - Added check for admin rights
+| 1.0 | 20100401 | d8f0e80c6c6fc9f03629aab911f102ee | - First public release
