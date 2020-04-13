@@ -1,9 +1,6 @@
-# Englishize Cmd
+# Englishize Cmd – Change Non-English Command Line Interface to English Fast
 
 There often comes a need to use built-in command-line tools in English in non-English Windows, as they are localized to another language which can be difficult for admins who only speak English. &#39;Englishize Cmd&#39; employs a different technique to &#39;englishize&#39; CLI tools with a click.
-
-Download the latest release at Microsoft TechNet Gallery:
-- https://gallery.technet.microsoft.com/Englishize-Cmd-Command-3e66ba79
 
  ![](https://farm5.static.flickr.com/4041/4481192203_2374fa34da_o.png "Bilingual command prompt: Upper has Englishize Cmd applied (changed to English); lower has it restored (to original language).")
 
@@ -11,7 +8,7 @@ Download the latest release at Microsoft TechNet Gallery:
 
 **[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://wandersick.blogspot.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
 
-## List of features
+## List of Features
 
 1. Toggles between English and non-English for many Windows commands
 2. For English system admins who manages Windows PCs of other languages
@@ -90,6 +87,6 @@ Englishize Cmd has been designed with safety in mind; it does not allow a .mui t
 | 1.4a | 20120408 | 6793d377acd497643a9c762d3fed6c81 | - Fixed "_lang_codes.txt". It should not contain any en-XX languages; otherwise, even English is disabled. |
 | 1.4 | 20120407 | dc458d3e02d72956a61021bb0d90c2ff | - Improved "_lang_codes.txt" so that all system languages are supported. (Please report if your locale is not included) |
 | 1.3 | 20100428 | 2312bb99d93915a7645237dbb1de2191 | - Now asks for elevation automatically<br>- Added check for Windows version
-| 1.2 | 20100420 | b25aa93e43577b3209f4aa57d9966e60 | - 	Documentation and coding improvements
+| 1.2 | 20100420 | b25aa93e43577b3209f4aa57d9966e60 | - Documentation and coding improvements
 | 1.1 | 20100416 | d4082b73326963ecf17f4801106bc371 | - Added check for admin rights
 | 1.0 | 20100401 | d8f0e80c6c6fc9f03629aab911f102ee | - First public release
