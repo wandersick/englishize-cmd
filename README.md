@@ -75,6 +75,13 @@ alt="Englishize Cmd on YouTube" width="240" height="180" border="10" /></a>
 
 Englishize Cmd has been designed with safety in mind; it does not allow a .mui to be disabled when its en-US counterpart is not found, in order to prevent from causing system problems. On the other hand, 'Restore.bat' restores original permission and ownership information in addition to renaming language files back to original file names. It is recommended to run 'Restore.bat' after use to fall back to original configuration at once. Next time, when it is desired to use Englishize Cmd, simply repeat the procedure of running 'Englishize.bat' and 'Restore.bat' again.
 
+## Word of Mouth
+
+Below are some of the kind comments left by users of the script. (Thanks!)
+
+- "You provide a really great script. It saved my life because we here at school need the English commands in cmd with German OS language in Windows 10."
+- "It's a very useful app. Thanks."
+
 ## Release history
 
 | Ver | Date | MD5 | Changes |
