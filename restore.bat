@@ -64,10 +64,10 @@ for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_
 
 
 cls
-title Englishize Cmd v1.7a
+title Englishize Cmd by wandersick v1.8 - http://tech.wandersick.com
 echo.
 echo.
-echo                            [ Englishize Cmd v1.7a ]
+echo                            [ Englishize Cmd v1.8 ]
 echo.
 echo.
 echo #  This script restores the command line interface back to original
@@ -102,7 +102,7 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
 )
 
 echo.
-echo #  Completed.
+echo #  Completed. Thanks for using Englishize Cmd :^)
 echo.
 echo Press any key to test . . .
 pause >nul

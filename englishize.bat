@@ -65,10 +65,10 @@ for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_
 cls
 
 
-title Englishize Cmd v1.7a
+title Englishize Cmd by wandersick v1.8 - http://tech.wandersick.com
 echo.
 echo.
-echo                            [ Englishize Cmd v1.7a ]
+echo                            [ Englishize Cmd v1.8 ]
 echo.
 echo.
 echo #  This script changes command line interface to English.

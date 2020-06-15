@@ -1,7 +1,7 @@
 
-                            [ Englishize Cmd v1.7a ]
+                            [ Englishize Cmd v1.8 ]
 
-             http://wandersick.blogspot.com | wandersick@gmail.com
+             http://tech.wandersick.com | wandersick@gmail.com
 
      [ What? ]
 
@@ -53,11 +53,14 @@
      
      [ Video Demo ]
          
-     http://wandersick.blogspot.com/p/change-non-english-command-line.html
+     http://tech.wandersick.com/p/change-non-english-command-line.html
 
      [ Releases ]
 
-       1.7a   A quick fix to patch the recently updated restore.bat which
+       vNext  Added the option to install (and uninstall) Englishize Cmd
+              into system for ease of use, alongside existing portable
+              option.
+       1.8    A quick fix to patch the recently updated restore.bat which
               launched incorrect batch script during elevation.
        1.7    Fixes non-stop prompting when run as standard user w/o UAC.
               Added a note: it is normal to see 'not enough storage' error     
@@ -80,5 +83,10 @@
 
      [ Suggestions ]
 
-  #  Do you have one? Please drop me a line by email or the web site atop.
+     Do you have one? Please drop me a line by email or the web site atop.
   
+     [ Donation ]
+
+     If Englishize Cmd or my other utilities help you, consider buying me a cup
+     of coffee at https://tinyurl.com/buy-coffee which would be appreciated :)
+     

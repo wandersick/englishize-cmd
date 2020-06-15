@@ -6,7 +6,7 @@ There often comes a need to use built-in command-line tools in English in non-En
 
 **Figure 1.** Bilingual command prompt: Upper has Englishize Cmd applied (changed to English); lower has it restored (to original language).
 
-**[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://wandersick.blogspot.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
+**[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://tech.wandersick.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
 
 ## List of Features
 
@@ -86,7 +86,7 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 
 | Ver | Date | MD5 | Changes |
 | --- | --- | --- | --- |
-| 1.7a | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
+| 1.8 | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
 | 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe | - Fixes non-stop prompting when run as standard user w/o UAC. |
 | 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 | - A quick fix to improve the last version. |
 | 1.6 | 20140105 | 0f45d9df16c9597a58804103fc0b492e | 1. Fixed bug in some non-English localized versions of Windows where 'Administrators' group account is named something else. Thanks Markus (echalone).<br>2. Confirmed working in Windows 8.1. |
