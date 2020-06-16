@@ -40,13 +40,16 @@ if defined noWSH (
 attrib >nul 2>&1
 if "%errorlevel%"=="9009" set noAttrib=1
 
+:: set the EnglishizeDir working directory where Englishize Cmd is by %~d0%~p0 (e.g. x:\...\englishize-cmd)
+set EnglishizeDir=%~d0%~p0
+
 :: detect admin rights
 if defined noAttrib goto :skipAdminCheck
 attrib -h "%windir%\system32" | find /i "system32" >nul 2>&1
 if %errorlevel% EQU 0 (
 	if "%UACenabled%" EQU "1" (
 		REM only when UAC is enabled can this script be elevated. Otherwise, non-stop prompting will occur.
-		cscript //NoLogo ".\Data\_elevate.vbs" "%CD%\" "%CD%\restore.bat" >nul 2>&1
+		cscript //NoLogo "%EnglishizeDir%Data\_elevate.vbs" "%EnglishizeDir%" "%EnglishizeDir%\restore.bat" >nul 2>&1
 		goto :EOF
 	) else (
 		echo.
