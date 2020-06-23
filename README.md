@@ -12,7 +12,7 @@ There often comes a need to use built-in command-line tools in English in non-En
 
 1. Toggles between English and non-English for many Windows commands
 2. For English system admins who manages Windows PCs of other languages
-3. No need to log off; settings are appled immediately
+3. No need to log off; settings are applied immediately
 4. Comes with a restorer. Apply or restore is as simple as a click
 5. Better character compatibility than changing DOS codepage
 6. Many languages and executables are supported. Customizable
@@ -20,6 +20,7 @@ There often comes a need to use built-in command-line tools in English in non-En
 8. Administrator rights are required. It asks for rights to elevates itself
 (Does not elevate over network mapped drives)
 9. Windows Vista/7/later and their server versions only
+10. Portable by default. Optional installer enables `englishize` and `restore` commands globally (in Command Prompt and Run prompt. For PowerShell, the commands would be `englishize.bat` and `restore.bat`)
 
 ## Background
 

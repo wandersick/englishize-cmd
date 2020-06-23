@@ -9,7 +9,7 @@
 
   .  For English system admins who manages Windows PCs of other languages.
   
-  .  No need to log off; settings are appled immediately.
+  .  No need to log off; settings are applied immediately.
   
   .  Comes with a restorer too. Apply or restore is as simple as a click.
   
@@ -21,6 +21,10 @@
      Does not elevate over network mapped drives however.
   
   .  Windows Vista or above only (Windows Vista/7/8/8.1, Server 2008/2012[R2])
+
+  .  Portable by default. Optional installer enables 'englishize' and 'restore'
+     commands globally (in Command Prompt and Run prompt. For PowerShell, the
+     commands would be 'englishize.bat' and 'restore.bat')
 
      [ Instructions ]
   
