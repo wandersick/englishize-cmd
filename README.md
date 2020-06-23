@@ -82,10 +82,11 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 - "You provide a really great script. It saved my life because we here at school need the English commands in cmd with German OS language in Windows 10."
 - "It's a very useful app. Thanks."
 
-## Release history
+## Release History
 
 | Ver | Date | MD5 | Changes |
 | --- | --- | --- | --- |
+| TBC | 20200623 | | - Fix (remove) EnableLUA debug message displayed during UAC elevation.<br>- Added the option to install (and uninstall) Englishize Cmd into system for ease of use, alongside existing portable option.<br>- Improved elevation mechanism so that it supports Run prompt. |
 | 1.8 | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
 | 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe | - Fixes non-stop prompting when run as standard user w/o UAC. |
 | 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 | - A quick fix to improve the last version. |

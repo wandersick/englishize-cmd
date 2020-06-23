@@ -12,7 +12,7 @@ for /f "usebackq tokens=3 skip=2" %%i in (`reg query "HKLM\SOFTWARE\Microsoft\Wi
 )
 
 :: UAC check
-reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA | find /i "0x1"
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA | find /i "0x1">nul 2>&1
 if %errorlevel% EQU 0 set UACenabled=1
 
 :: detect if system has WSH disabled unsigned scripts

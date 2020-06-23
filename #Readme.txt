@@ -61,6 +61,7 @@
               into system for ease of use, alongside existing portable
               option.
               Improved elevation mechanism so that it supports Run prompt
+              Fix EnableLUA debug message displayed during UAC elevation
        1.8    A quick fix to patch the recently updated restore.bat which
               launched incorrect batch script during elevation.
        1.7    Fixes non-stop prompting when run as standard user w/o UAC.
