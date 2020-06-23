@@ -1,5 +1,5 @@
 
-                            [ Englishize Cmd v1.8 ]
+                            [ Englishize Cmd v2.0 ]
 
              http://tech.wandersick.com | wandersick@gmail.com
 
@@ -61,7 +61,7 @@
 
      [ Releases ]
 
-       vNext  Added the option to install (and uninstall) Englishize Cmd
+       2.0    Added the option to install (and uninstall) Englishize Cmd
               into system for ease of use, alongside existing portable
               option.
               Improved elevation mechanism so that it supports Run prompt
@@ -69,7 +69,7 @@
        1.8    A quick fix to patch the recently updated restore.bat which
               launched incorrect batch script during elevation.
        1.7    Fixes non-stop prompting when run as standard user w/o UAC.
-              Added a note: it is normal to see 'not enough storage' error     
+              Added note: it is normal to see the error 'not enough storage'
        1.6a   A quick fix to improve the last version.
        1.6    Fixed bug in some non-English localized versions of Windows
               where 'Administrators' group account is named something else.
@@ -93,6 +93,6 @@
   
      [ Donation ]
 
-     If Englishize Cmd or my other utilities help you, consider buying me a cup
-     of coffee at https://tinyurl.com/buy-coffee which would be appreciated :)
+     If Englishize Cmd helps you, consider buying me a coffee at
+     https://tech.wandersick.com/p/donate.html which would be appreciated :)
      

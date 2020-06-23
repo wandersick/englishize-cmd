@@ -67,10 +67,10 @@ for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_
 
 
 cls
-title Englishize Cmd by wandersick v1.8 - http://tech.wandersick.com
+title Englishize Cmd by wandersick v2.0
 echo.
 echo.
-echo                            [ Englishize Cmd v1.8 ]
+echo                            [ Englishize Cmd v2.0 ]
 echo.
 echo.
 echo #  This script restores the command line interface back to original
@@ -105,8 +105,16 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
 )
 
 echo.
-echo #  Completed. Thanks for using Englishize Cmd :^)
+echo #  Completed.
 echo.
 echo Press any key to test . . .
 pause >nul
-start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in the original language.&echo.&echo #  Note 1: It may not reflect now if the restorer was run elevated.&echo.&echo #  Note 2: It is normal if you see 'not enough storage' error.&echo.&pause"
+start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in the original language.&echo.&echo #  Note 1: It may not reflect now if the restorer was run elevated.&echo.&echo #  Note 2: It is normal if you see an error like 'not enough storage'.&echo.&pause"
+cls
+echo.
+echo    Thanks for using Englishize Cmd :^)
+echo.
+echo    Support by buying coffee at tech.wandersick.com
+echo.
+ping 127.0.0.1 -n 2 >nul 2>&1
+pause
