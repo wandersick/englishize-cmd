@@ -87,8 +87,8 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 
 | Ver | Date | MD5 | Changes |
 | --- | --- | --- | --- |
-| 2.0 | 20200627 | Refer to [GitHub Releases](https://github.com/wandersick/englishize-cmd/releases) | - Added the option to install (and uninstall) Englishize Cmd into system for ease of use, alongside existing portable option, adding to Run prompt and PATH environmental variable to enable the `englishize` and `restore` command anywhere for ease of use.<br>- Fix (remove) EnableLUA debug message displayed during UAC elevation.<br>- Improved elevation mechanism so that it supports Run prompt. |
-| 1.8 | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
+| 2.0 | 20200630 | Refer to [GitHub Releases](https://github.com/wandersick/englishize-cmd/releases) | - Added the option to install (and uninstall) Englishize Cmd into system for ease of use, alongside existing portable option, adding to Run prompt and PATH environmental variable to enable the `englishize` and `restore` command anywhere for ease of use.<br>- Fix (remove) EnableLUA debug message displayed during UAC elevation.<br>- Improved elevation mechanism so that it supports Run prompt. |
+| 1.7a | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restore.bat which launched incorrect batch script during elevation |
 | 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe | - Fixes non-stop prompting when run as standard user w/o UAC. |
 | 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 | - A quick fix to improve the last version. |
 | 1.6 | 20140105 | 0f45d9df16c9597a58804103fc0b492e | 1. Fixed bug in some non-English localized versions of Windows where 'Administrators' group account is named something else. Thanks Markus (echalone).<br>2. Confirmed working in Windows 8.1. |

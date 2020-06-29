@@ -63,7 +63,7 @@ if %errorlevel% EQU 0 (
 
 :: acquire admin group account name
 
-for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
+for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo "%EnglishizeDir%\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
 
 cls
 
@@ -94,10 +94,10 @@ pause >nul
 
 if not defined ProgramFiles(x86) goto :notX64
 
-for /f "usebackq" %%i in ("_files_to_process.txt") do (
+for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
   @if exist "%systemroot%\SysWoW64\en-US\%%i.mui" (
     REM lang code file should not contain english language codes. (cant remove eng cos thats the line.)
-    @for /f "usebackq" %%m in ("_lang_codes.txt") do (
+    @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
       @if exist "%systemroot%\SysWoW64\%%m\%%i.mui" (
         takeown /a /f "%systemroot%\SysWoW64\%%m\%%i.mui"
         cacls "%systemroot%\SysWoW64\%%m\%%i.mui" /E /G "%adminGroupName%":F
@@ -109,10 +109,10 @@ for /f "usebackq" %%i in ("_files_to_process.txt") do (
 
 :notX64
 
-for /f "usebackq" %%i in ("_files_to_process.txt") do (
+for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
   @if exist "%systemroot%\System32\en-US\%%i.mui" (
     REM lang code file should not contain english language codes. (cant remove eng cos thats the line.)
-    @for /f "usebackq" %%m in ("_lang_codes.txt") do (
+    @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
       @if exist "%systemroot%\System32\%%m\%%i.mui" (
         takeown /a /f "%systemroot%\System32\%%m\%%i.mui"
         cacls "%systemroot%\System32\%%m\%%i.mui" /E /G "%adminGroupName%":F

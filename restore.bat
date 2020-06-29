@@ -63,7 +63,7 @@ if %errorlevel% EQU 0 (
 
 :: acquire admin group account name
 
-for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo ".\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
+for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo "%EnglishizeDir%\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
 
 
 cls
@@ -80,8 +80,8 @@ pause >nul
 
 :: the below covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
 
-for /f "usebackq" %%i in ("_files_to_process.txt") do (
-  @for /f "usebackq" %%m in ("_lang_codes.txt") do (
+for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
+  @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
 	REM restores original permissions and ownership - icacls is used as cacls cannot replace F permissions with RX and disable inheritance
 	REM due to redirection, one of these pairs are unrequired, but they are left here anyway to ensure all things in system32 and syswow64 are covered even without redirection
 	if exist "%systemroot%\System32\%%m\%%i.mui.disabled" (
