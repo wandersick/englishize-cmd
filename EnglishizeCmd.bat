@@ -47,13 +47,17 @@ set EnglishizeDir=%~d0%~p0
 if defined noAttrib goto :skipAdminCheck
 attrib -h "%windir%\system32" | find /i "system32" >nul 2>&1
 if %errorlevel% EQU 0 (
-	if "%UACenabled%" EQU "1" (
+	REM only when no parameter is specified should the script be elevated, as any supplied parameters cannot be carried across
+	if /i "%~1" NEQ "/quiet" (
 		REM only when UAC is enabled can this script be elevated. Otherwise, non-stop prompting will occur.
-		cscript //NoLogo "%EnglishizeDir%Data\_elevate.vbs" "%EnglishizeDir%" "%EnglishizeDir%\EnglishizeCmd.bat" >nul 2>&1
-		goto :EOF
+		if "%UACenabled%" EQU "1" (
+			cscript //NoLogo "%EnglishizeDir%Data\_elevate.vbs" "%EnglishizeDir%" "%EnglishizeDir%\EnglishizeCmd.bat" >nul 2>&1
+			goto :EOF
+		)
 	) else (
+		REM /quiet requires having admin rights in advance
 		echo.
-		echo ** WARNING: Script running without admin rights. Cannot continue.
+		echo ** Englishize Cmd requires admin rights in advance for /quiet. Please run Command Prompt as admin.
 		echo.
 		pause
 		goto :EOF
@@ -74,16 +78,18 @@ echo.
 echo                            [ Englishize Cmd v2.0 ]
 echo.
 echo.
-echo #  This script changes command line interface to English.
+echo #  This script changes command-line interface to English.
 echo.
-echo #  Designed for localized non-English Windows Vista or above. Any languages.
+echo #  Designed for localized non-English Windows Vista ^(Server 2008^) or above. Any languages.
 echo.
 echo #  Note 1. A few programs without a .mui aren't affected, e.g. xcopy
 echo.
-echo         2. _files_to_process.txt can be customized to cover more/less commands
+echo         2. _files_to_process.txt can be customized to cover more/fewer commands
 echo.
 echo         3. English MUI can be installed through Windows Update or Vistalizator
 echo            to support GUI programs such as Paint.
+echo.
+echo         4. /quiet ^(optional^) can be specified to run Englishize Cmd in an unattended way
 echo.
 if /i "%~1" NEQ "/quiet" (
   echo Press any key to begin . . .
@@ -133,7 +139,7 @@ if /i "%~1" NEQ "/quiet" (
   pause >nul
   start "" "%comspec%" /c "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: This window will close automatically in 10 seconds.&echo.&ping 127.0.0.1 -n 10 >nul 2>&1"
 ) else (
-  start "" "%comspec%" /c "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: This window will close automatically in 5 seconds.&echo.&ping 127.0.0.1 -n 5 >nul 2>&1"
+  start "" "%comspec%" /c "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: This window will close automatically in 10 seconds.&echo.&ping 127.0.0.1 -n 10 >nul 2>&1"
 )
 
 cls
