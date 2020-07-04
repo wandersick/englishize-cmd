@@ -81,6 +81,8 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 
 - "You provide a really great script. It saved my life because we here at school need the English commands in cmd with German OS language in Windows 10."
 - "It's a very useful app. Thanks."
+- "Your script is awesome!"
+- "I just can't thank you enough for your efforts! I really appreciate it. You helped a lot!"
 
 ## Release History
 
