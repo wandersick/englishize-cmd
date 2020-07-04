@@ -16,10 +16,11 @@ There often comes a need to use built-in command-line tools in English in non-En
 4. Comes with a restorer. Apply or restore is as simple as a click or typing `EnglishizeCmd` and `RestoreCmd` commands
 5. Better character compatibility than changing DOS codepage
 6. Many languages and executables are supported. Customizable
-7. Ensure the outputs which your scripts catch are always in English
-8. Administrator rights are required. It asks for rights to elevates itself (Does not elevate over network mapped drives)
-9. Supports from Windows Vista/7 to 10 (or Windows Server 2008 to 2019)
-10. Portable by default. Optional installer enables `EnglishizeCmd` and `RestoreCmd` commands globally (in Command Prompt and Run prompt. For PowerShell, the commands would be `EnglishizeCmd.bat` and `RestoreCmd.bat`)
+8. Ensure the outputs which your scripts catch are always in English
+9. Administrator rights are required. It asks for rights to elevates itself (Does not elevate over network mapped drives)
+10. Parameter `/quiet` can be used to suppress confirmation messages for unattended usage. (Only works when existing Command Prompt is run elevated)
+11. Supports from Windows Vista/7 to 10 (or Windows Server 2008 to 2019)
+12. Portable by default. Optional installer enables `EnglishizeCmd` and `RestoreCmd` commands globally (in Command Prompt and Run prompt. For PowerShell, the commands would be `EnglishizeCmd.bat` and `RestoreCmd.bat`)
 
 ## Background
 
@@ -88,7 +89,7 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 
 | Ver | Date | MD5 | Changes |
 | --- | --- | --- | --- |
-| 2.0 | 20200705 | Refer to [GitHub Releases](https://github.com/wandersick/englishize-cmd/releases) | - Added the option to install (and uninstall) Englishize Cmd into system for ease of use, alongside existing portable option, adding to Run prompt and PATH environmental variable to enable the `EnglishizeCmd` and `RestoreCmd` command anywhere for ease of use.<br>- Fix (remove) EnableLUA debug message displayed during UAC elevation.<br>- Improved elevation mechanism so that it supports Run prompt.<br>- Append 'Cmd' to commands, i.e. 'EngishizeCmd' and 'RestoreCmd'. |
+| 2.0 | 20200705 | Refer to [GitHub Releases](https://github.com/wandersick/englishize-cmd/releases) | - Added the option to install (and uninstall) Englishize Cmd into system for ease of use, alongside existing portable option, adding to Run prompt and PATH environmental variable to enable the `EnglishizeCmd` and `RestoreCmd` command anywhere for ease of use.<br>- Fix (remove) EnableLUA debug message displayed during UAC elevation.<br>- Improved elevation mechanism so that it supports Run prompt.<br>- Append 'Cmd' to commands, i.e. 'EngishizeCmd' and 'RestoreCmd'.<br>- Add support for `/quiet` parameter for unattended usage (suppress `pause` messages) |
 | 1.7a | 20140513 | c0b89ec00a51403db6afc650cc4dba16 | - A quick fix to patch the recently updated restoration script which launched incorrect batch script during elevation |
 | 1.7 | 20140511 | 6ae00a4461d0946d38f442e279c416fe | - Fixes non-stop prompting when run as standard user w/o UAC. |
 | 1.6a | 20140105 | 72a3fe23d386d400f0b6d7d31b0562d7 | - A quick fix to improve the last version. |

@@ -16,11 +16,14 @@
   
   .  Better character compatibility than changing DOS codepage.
   
-  .  Most languages and executables are supported. Customizable.
-  
+  .  Many languages and executables are supported. Customizable.
+ 
   .  Administrator rights are required. It asks for rights to elevates itself.
      Does not elevate over network mapped drives however.
-  
+
+  .  Parameter /quiet can be used to suppress confirmation messages for
+     unattended usage. (Only works when existing Command Prompt is run elevated)
+
   .  Supports from Windows Vista/7 to 10 (or Windows Server 2008 to 2019)
 
   .  Portable by default. Optional installer enables 'EnglishizeCmd' and 
@@ -68,6 +71,7 @@
               Improved elevation mechanism so that it supports Run prompt
               Fix EnableLUA debug message displayed during UAC elevation
               Append 'Cmd' to commands, i.e. 'EngishizeCmd' and 'RestoreCmd'
+              Add support for '/quiet' parameter for unattended usage
        1.7a   A quick fix to patch the recently updated RestoreCmd.bat which
               launched incorrect batch script during elevation.
        1.7    Fixes non-stop prompting when run as standard user w/o UAC.

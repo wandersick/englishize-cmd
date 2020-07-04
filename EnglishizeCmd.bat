@@ -85,9 +85,10 @@ echo.
 echo         3. English MUI can be installed through Windows Update or Vistalizator
 echo            to support GUI programs such as Paint.
 echo.
-echo Press any key to begin . . .
-pause >nul
-
+if /i "%~1" NEQ "/quiet" (
+  echo Press any key to begin . . .
+  pause >nul
+)
 
 :: the below only runs if current system is x64
 :: it covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
@@ -126,14 +127,20 @@ for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
 echo.
 echo #  Completed. To restore, run RestoreCmd.bat
 echo.
-echo Press any key to run test . . .
-pause >nul
-start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: It is normal if you see an error like 'not enough storage'.&echo.&pause"
+
+if /i "%~1" NEQ "/quiet" (
+  echo Press any key to run test . . .
+  pause >nul
+  start "" "%comspec%" /c "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: This window will close automatically in 10 seconds.&echo.&ping 127.0.0.1 -n 10 >nul 2>&1"
+) else (
+  start "" "%comspec%" /c "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: This window will close automatically in 5 seconds.&echo.&ping 127.0.0.1 -n 5 >nul 2>&1"
+)
+
 cls
 echo.
 echo    Thanks for using Englishize Cmd :^)
 echo.
-echo    Support by buying coffee at tech.wandersick.com
+echo    Support by visiting or buying coffee at tech.wandersick.com
 echo.
 ping 127.0.0.1 -n 2 >nul 2>&1
-pause
+if /i "%~1" NEQ "/quiet" pause
