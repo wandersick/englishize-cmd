@@ -11,7 +11,8 @@
   
   .  No need to log off; settings are applied immediately.
   
-  .  Comes with a restorer too. Apply or restore is as simple as a click.
+  .  Comes with a restorer too. Apply or restore is as simple as a click
+     or typing 'EnglishizeCmd' and 'RestoreCmd' commands
   
   .  Better character compatibility than changing DOS codepage.
   
@@ -20,18 +21,18 @@
   .  Administrator rights are required. It asks for rights to elevates itself.
      Does not elevate over network mapped drives however.
   
-  .  Windows Vista or above only (Windows Vista/7/8/8.1, Server 2008/2012[R2])
+  .  Supports from Windows Vista/7 to 10 (or Windows Server 2008 to 2019)
 
-  .  Portable by default. Optional installer enables 'englishize' and 'restore'
-     commands globally (in Command Prompt and Run prompt. For PowerShell, the
-     commands would be 'englishize.bat' and 'restore.bat')
+  .  Portable by default. Optional installer enables 'EnglishizeCmd' and 
+     'RestoreCmd' commands globally (in Command Prompt and Run prompt. For 
+     PowerShell, the commands would be 'EnglishizeCmd.bat' and 'RestoreCmd.bat')
 
      [ Instructions ]
   
-  1. "Englishize.bat" for changing command line tools from non-English to
+  1. "EnglishizeCmd.bat" for changing command line tools from non-English to
       English.
       
-  2. "Restore.bat" to restore everything back to original language.
+  2. "RestoreCmd.bat" to restore everything back to the original language.
       
   3. "_lang_codes.txt" is a modifiable list containing all non-English language
       codes. It includes most languages but in case your language is not there,
@@ -66,7 +67,8 @@
               option.
               Improved elevation mechanism so that it supports Run prompt
               Fix EnableLUA debug message displayed during UAC elevation
-       1.7a   A quick fix to patch the recently updated restore.bat which
+              Append 'Cmd' to commands, i.e. 'EngishizeCmd' and 'RestoreCmd'
+       1.7a   A quick fix to patch the recently updated RestoreCmd.bat which
               launched incorrect batch script during elevation.
        1.7    Fixes non-stop prompting when run as standard user w/o UAC.
               Added note: it is normal to see the error 'not enough storage'

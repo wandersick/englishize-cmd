@@ -63,11 +63,11 @@ IfExist, %A_WorkingDir%\Data\_choiceMulti.bat
 
 ; Install / Uninstall
 regKey=SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\EnglishizeCmd
-IfNotExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
+IfNotExist, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat
 {
 	IfNotEqual, unattendAZ, 1
 	{
-		MsgBox, 262180, EnglishizeCmd Installer , Install EnglishizeCmd in the following location?`n`n%targetDir%\wandersick\EnglishizeCmd`n`nNote:`n - For portable use, just run Englishize.bat. Setup is unneeded.`n - To install silently or to all users, run Setup.exe /? to see how.`n - To remove a copy that was installed to all users, run Setup.exe /programfiles
+		MsgBox, 262180, EnglishizeCmd Installer , Install EnglishizeCmd in the following location?`n`n%targetDir%\wandersick\EnglishizeCmd`n`nNote:`n - For portable use, just run EnglishizeCmd.bat. Setup is unneeded.`n - To install silently or to all users, run Setup.exe /? to see how.`n - To remove a copy that was installed to all users, run Setup.exe /programfiles
 		IfMsgBox No
 		{
 			ExitApp, 1
@@ -88,7 +88,7 @@ IfNotExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
 	if A_IsAdmin ; unnecessary
 	{
 		; Limitation: Run prompt does not have a current-user way, so both types of installation (current-user/all-users) would write to the same registry area
-		RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\EnglishizeCmd.exe,, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
+		RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\EnglishizeCmd.exe,, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat
 	}
 	
 	; For setting system-wide PATH environmental variable so that 'EnglishizeCmd' can be run in Command Prompt or PowerShell
@@ -111,34 +111,34 @@ IfNotExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
 		EnvUpdate
 	}
 
-	IfExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
+	IfExist, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat
 	{
 		; Create shortcut to Start Menu (All Users)
 		If setupAllUsers
 		{
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat, %A_ProgramsCommon%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat, %A_DesktopCommon%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat, %A_ProgramsCommon%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat, %A_DesktopCommon%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
 		}
 		; Create shortcut to Start Menu (Current User)
 		Else
 		{
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat, %A_Programs%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat, %A_Desktop%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat, %A_Programs%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat, %A_Desktop%\EnglishizeCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Englishize command-line tools with a click,%targetDir%\wandersick\EnglishizeCmd\Data\EnglishizeCmd-icon.ico,
 		}
 	}
-	IfExist, %targetDir%\wandersick\EnglishizeCmd\Restore.bat
+	IfExist, %targetDir%\wandersick\EnglishizeCmd\RestoreCmd.bat
 	{
 		; Create shortcut to Start Menu (All Users)
 		If setupAllUsers
 		{
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Restore.bat, %A_ProgramsCommon%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Restore.bat, %A_DesktopCommon%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\RestoreCmd.bat, %A_ProgramsCommon%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\RestoreCmd.bat, %A_DesktopCommon%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
 		}
 		; Create shortcut to Start Menu (Current User)
 		Else
 		{
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Restore.bat, %A_Programs%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
-			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\Restore.bat, %A_Desktop%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\RestoreCmd.bat, %A_Programs%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
+			FileCreateShortcut, %targetDir%\wandersick\EnglishizeCmd\RestoreCmd.bat, %A_Desktop%\RestoreCmd.lnk, %targetDir%\wandersick\EnglishizeCmd\,, Restore Englishized command-line tools to original language,%targetDir%\wandersick\EnglishizeCmd\Data\RestoreCmd-icon.ico,
 		}
 	}
 	; if a shortcut is in startup, re-create it to ensure its not linked to the portable version's path
@@ -180,7 +180,7 @@ IfNotExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
 	EstimatedSize += %A_LoopFileSize%
 	EstimatedSize /= 1024
 	RegWrite, REG_DWORD, HKEY_CURRENT_USER, %regKey%, EstimatedSize, %EstimatedSize%
-	IfExist, %targetDir%\wandersick\EnglishizeCmd\Englishize.bat
+	IfExist, %targetDir%\wandersick\EnglishizeCmd\EnglishizeCmd.bat
 	{
 		IfEqual, unattendAZ, 1
 		{

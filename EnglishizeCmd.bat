@@ -49,7 +49,7 @@ attrib -h "%windir%\system32" | find /i "system32" >nul 2>&1
 if %errorlevel% EQU 0 (
 	if "%UACenabled%" EQU "1" (
 		REM only when UAC is enabled can this script be elevated. Otherwise, non-stop prompting will occur.
-		cscript //NoLogo "%EnglishizeDir%Data\_elevate.vbs" "%EnglishizeDir%" "%EnglishizeDir%\restore.bat" >nul 2>&1
+		cscript //NoLogo "%EnglishizeDir%Data\_elevate.vbs" "%EnglishizeDir%" "%EnglishizeDir%\EnglishizeCmd.bat" >nul 2>&1
 		goto :EOF
 	) else (
 		echo.
@@ -65,51 +65,70 @@ if %errorlevel% EQU 0 (
 
 for /f "usebackq tokens=* delims=" %%i in (`cscript //NoLogo "%EnglishizeDir%\Data\_determine_admin_group_name.vbs"`) do set adminGroupName=%%i
 
-
 cls
+
+
 title Englishize Cmd by wandersick v2.0
 echo.
 echo.
 echo                            [ Englishize Cmd v2.0 ]
 echo.
 echo.
-echo #  This script restores the command line interface back to original
+echo #  This script changes command line interface to English.
+echo.
+echo #  Designed for localized non-English Windows Vista or above. Any languages.
+echo.
+echo #  Note 1. A few programs without a .mui aren't affected, e.g. xcopy
+echo.
+echo         2. _files_to_process.txt can be customized to cover more/less commands
+echo.
+echo         3. English MUI can be installed through Windows Update or Vistalizator
+echo            to support GUI programs such as Paint.
 echo.
 echo Press any key to begin . . .
 pause >nul
 
-:: the below covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
+
+:: the below only runs if current system is x64
+:: it covers mui files under %windir%\SysWoW64 used by 32bit cmd.exe (%windir%\SysWoW64\cmd.exe)
+
+if not defined ProgramFiles(x86) goto :notX64
 
 for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
-  @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
-	REM restores original permissions and ownership - icacls is used as cacls cannot replace F permissions with RX and disable inheritance
-	REM due to redirection, one of these pairs are unrequired, but they are left here anyway to ensure all things in system32 and syswow64 are covered even without redirection
-	if exist "%systemroot%\System32\%%m\%%i.mui.disabled" (
-		ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
-		if exist "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" @ren "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" "%%i.mui"
-		icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
-		REM the below output is probably an error, hence muted to avoid confusion as redirection probably handled it
-		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
-		icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d
-		if exist "%systemroot%\SysWoW64\%%m\%%i.mui" @icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d >nul 2>&1
-	)
-	if exist "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" (
-		ren "%systemroot%\SysWoW64\%%m\%%i.mui.disabled" "%%i.mui"
-		if exist "%systemroot%\System32\%%m\%%i.mui.disabled" @ren "%systemroot%\System32\%%m\%%i.mui.disabled" "%%i.mui"
-		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C 
-		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /setowner "NT Service\TrustedInstaller" /C >nul 2>&1
-		icacls "%systemroot%\SysWoW64\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d
-		if exist "%systemroot%\System32\%%m\%%i.mui" @icacls "%systemroot%\System32\%%m\%%i.mui" /grant:r "%adminGroupName%":^(RX^) /inheritance:d >nul 2>&1
-	)
+  @if exist "%systemroot%\SysWoW64\en-US\%%i.mui" (
+    REM lang code file should not contain english language codes. (cant remove eng cos thats the line.)
+    @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
+      @if exist "%systemroot%\SysWoW64\%%m\%%i.mui" (
+        takeown /a /f "%systemroot%\SysWoW64\%%m\%%i.mui"
+        cacls "%systemroot%\SysWoW64\%%m\%%i.mui" /E /G "%adminGroupName%":F
+        ren "%systemroot%\SysWoW64\%%m\%%i.mui" "%%i.mui.disabled"
+      )
+    )
   )
 )
 
+:notX64
+
+for /f "usebackq" %%i in ("%EnglishizeDir%\_files_to_process.txt") do (
+  @if exist "%systemroot%\System32\en-US\%%i.mui" (
+    REM lang code file should not contain english language codes. (cant remove eng cos thats the line.)
+    @for /f "usebackq" %%m in ("%EnglishizeDir%\_lang_codes.txt") do (
+      @if exist "%systemroot%\System32\%%m\%%i.mui" (
+        takeown /a /f "%systemroot%\System32\%%m\%%i.mui"
+        cacls "%systemroot%\System32\%%m\%%i.mui" /E /G "%adminGroupName%":F
+        ren "%systemroot%\System32\%%m\%%i.mui" "%%i.mui.disabled"
+      )
+    )
+  )
+)
+
+
 echo.
-echo #  Completed.
+echo #  Completed. To restore, run RestoreCmd.bat
 echo.
-echo Press any key to test . . .
+echo Press any key to run test . . .
 pause >nul
-start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in the original language.&echo.&echo #  Note 1: It may not reflect now if the restorer was run elevated.&echo.&echo #  Note 2: It is normal if you see an error like 'not enough storage'.&echo.&pause"
+start "" "%comspec%" /k "help&echo.&echo #  Successful if the above is displayed in English.&echo.&echo #  Note: It is normal if you see an error like 'not enough storage'.&echo.&pause"
 cls
 echo.
 echo    Thanks for using Englishize Cmd :^)
