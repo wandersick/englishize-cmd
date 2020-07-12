@@ -19,8 +19,8 @@ There often comes a need to use built-in command-line tools in English in non-En
 8. Ensure the outputs which your scripts catch are always in English
 9. Administrator rights are required. It asks for rights to elevates itself (Does not elevate over network mapped drives)
 10. Parameter `/quiet` can be used to suppress confirmation messages for unattended usage. (Only works when existing Command Prompt is run elevated)
-11. Supports from Windows Vista/7 to 10 (or Windows Server 2008 to 2019)
-12. Portable by default. Optional installer enables `EnglishizeCmd` and `RestoreCmd` commands globally (in Command Prompt and Run prompt. For PowerShell, the commands would be `EnglishizeCmd.bat` and `RestoreCmd.bat`)
+11. Supports Windows Vista and later, as well as their server versions only, including Windows 10 or Windows Server 2019
+12. Portable by default. Optional installer enables `EnglishizeCmd` and `RestoreCmd` commands globally. (The commands including the extensions would be `EnglishizeCmd.bat` and `RestoreCmd.bat`)
 
 ## Background
 
@@ -40,7 +40,7 @@ For command line programs, Non-English versions of Windows Vista and later actua
 
 ## Concept (Temporary Language File Renaming)
 
-Invertigation using Sysinternals Process Monitor reveals that, whenever Windows fails to locate a .exe.mui file in any zh-TW directory, it falls back to locating the .exe.mui in en-US. Comes the concept of Englishize Cmd: Why not temporarily rename the .mui file in zh-TW to something else so that it just falls back to using the one in en-US? Now it has been confirmed the technique works, except that it is a lot of work deciding which system files can be renamed, unprotecting those files as they are protected by WRP (Windows Resource Protection), renaming every single command-line executable... Comes "Englishize Cmd" for this. "Englishize Cmd" is a simple customizable program (batch script) written to automate this tiresome process so that changing back and forth from English to non-English is easier.
+Investigation using Sysinternals Process Monitor reveals that, whenever Windows fails to locate a .exe.mui file in any zh-TW directory, it falls back to locating the .exe.mui in en-US. Comes the concept of Englishize Cmd: Why not temporarily rename the .mui file in zh-TW to something else so that it just falls back to using the one in en-US? Now it has been confirmed the technique works, except that it is a lot of work deciding which system files can be renamed, unprotecting those files as they are protected by WRP (Windows Resource Protection), renaming every single command-line executable... Comes "Englishize Cmd" for this. "Englishize Cmd" is a simple customizable program (batch script) written to automate this tiresome process so that changing back and forth from English to non-English is easier.
 
  ![](https://farm5.static.flickr.com/4012/4481192211_7cc7fed95d_o.png "Upper: EnglishizeCmd.bat; lower: RestoreCmd.bat")
 
@@ -63,6 +63,8 @@ Invertigation using Sysinternals Process Monitor reveals that, whenever Windows 
       ![](https://farm3.static.flickr.com/2780/4481192215_78a05a8a8a_o.png "Interestingly, there is a point where both languages are shown while processing EnglishizeCmd.bat.")
 
       **Figure 6.** Interestingly, there is a point where both languages are shown while processing EnglishizeCmd.bat
+
+**Tip**:  If Englishize Cmd is installed in the computer (instead of using it the portable way), the above files would be located in either `%ProgramFiles(x86)%\wandersick\EnglishizeCmd` (for an all-user setup) or `%LocalAppData%\wandersick\EnglishizeCmd` (for a per-user setup)
 
 ## Video Demonstrating Englishize Cmd
 
