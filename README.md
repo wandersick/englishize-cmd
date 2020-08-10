@@ -6,7 +6,21 @@ There often comes a need to use built-in command-line tools in English in non-En
 
 **Figure 1.** Bilingual command prompt: Upper has Englishize Cmd applied (changed to English); lower has it restored (to original language).
 
+For download of the latest version (portable application & per-user/all-users installer), please visit GitHub Releases:
+
+- [Download Englishize Cmd](https://github.com/wandersick/englishize-cmd/releases)
+
+After downloading and extracting EnglishizeCmd.zip, EnglishizeCmd.bat portable application can be used immediately. Alternatively, Setup.exe (optional) provides installation into Current User or All Users location.
+
+For users of [Chocolatey](https://chocolatey.org/packages/englishizecmd) and `winget` repositories who prefers unattended installation into All Users location:
+
+- `choco install englishizecmd`
+- `winget install englishizecmd`
+
+*Note for winget users: Please ignore the [warning from SmartScreen](https://live.staticflickr.com/65535/49987155847_d781799e16_o.gif), where you may safely click 'more info' to complete installation.
+
 **[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://tech.wandersick.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
+
 
 ## List of Features
 
