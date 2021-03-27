@@ -21,6 +21,8 @@ For users of [Chocolatey](https://chocolatey.org/packages/englishizecmd) and `wi
 
 **[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://tech.wandersick.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
 
+**[2021-03-27] Update:** Continued from the above, another German user reported an issue with the German 2004 version of Windows 10. In German Windows 10 2004, not only those files do not exist, but that putting the files back do not work. Again, this doesn't seem to affect other countries or regions. For a workaround, refer to <a href="https://github.com/wandersick/englishize-cmd/issues/2#issuecomment-808708906" target="_blank">this GitHub issue</a>.
+
 
 ## List of Features
 
