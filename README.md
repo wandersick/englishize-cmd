@@ -17,7 +17,7 @@ For users of [Chocolatey](https://chocolatey.org/packages/englishizecmd) and `wi
 - `choco install englishizecmd`
 - `winget install englishizecmd`
 
-*Note for winget users: Please ignore the [warning from SmartScreen](https://live.staticflickr.com/65535/49987155847_d781799e16_o.gif), where you may safely click 'more info' to complete installation.
+*Note for winget users: Please ignore the [warning from SmartScreen](https://live.staticflickr.com/65535/49987155847_468ed4ce08_o.gif), where you may safely click 'more info' to complete installation.
 
 **[2019-05-13] Update:** As reported by a German user (thanks), some en-US files (e.g. ipconfig.exe.mui) are not included in the German release of Windows 10 since 1809. This doesn't seem to affect other countries or regions. For details and workarounds, refer to <a href="https://tech.wandersick.com/p/change-non-english-command-line.html?showComment=1557634972460#c6596996191145251864" target="_blank">this comment</a>.
 
