@@ -105,7 +105,7 @@ Below are some of the kind comments left by users of the script. (Thanks!)
 - "Your script is awesome!"
 - "I just can't thank you enough for your efforts! I really appreciate it. You helped a lot!"
 
-The homepage of Englishize Cmd has also been [referenced by Microsoft Support](https://social.technet.microsoft.com/Forums/exchange/en-US/b48ee073-eb71-4852-8f56-ecf6f76b3fff/how-could-i-change-result-of-dcdiag-language-to-english-?forum=winserver8gen) for the discovered technique of renaming .mui files.
+The homepage of Englishize Cmd has also been [referenced by Microsoft Support](https://web.archive.org/web/20201016232218/https://social.technet.microsoft.com/Forums/exchange/en-US/b48ee073-eb71-4852-8f56-ecf6f76b3fff/how-could-i-change-result-of-dcdiag-language-to-english-?forum=winserver8gen) for the discovered technique of renaming .mui files.
 
 Englishize Cmd has been seen referenced by or integrated in several projects by others, such as [NetChecker by HakerDefo](http://netcheckersoftware.blogspot.com/p/faq.html) and [Xbox One Disk Partitioning Script by XFiX](https://gbatemp.net/download/xbox-one-windows-and-linux-internal-hard-drive-partitioning-script.34239).
 
